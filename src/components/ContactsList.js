@@ -7,7 +7,7 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
-  const handleDelete = async e => {
+  const handleDelete = e => {
     fetch(`${APIurl}/${e.target.value}`, {
       method: "DELETE",
       headers: {
