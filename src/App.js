@@ -15,9 +15,11 @@ export default function App() {
     fetch(APIurl)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp)
+      // console.log(resp)
       setContacts(resp)})
   },[])
+
+  // console.log('contacts in app.js',contacts)
 
   return (
     <>
