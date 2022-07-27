@@ -7,7 +7,10 @@ const initialValues = {
   firstName: '',
   lastName: '',
   street: '',
-  city:''
+  city:'',
+  email: '',
+  linkedin: '',
+  twitter: ''
 }
 
 function ContactsAdd(props) {
@@ -69,6 +72,16 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" value={newPerson.city} onChange={(event) => handleOnChange(event)} required/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="text" pattern={"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"}
+        value={newPerson.email} onChange={(event) => handleOnChange(event)} required/>
+
+      <label htmlFor="linkedin">Linkedin:</label>
+      <input id="linkedin" name="linkedin" type="linkedin" value={newPerson.linkedin} onChange={(event) => handleOnChange(event)} required/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="twitter" value={newPerson.twitter} onChange={(event) => handleOnChange(event)} required/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

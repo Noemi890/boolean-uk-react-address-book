@@ -18,7 +18,7 @@ function ContactsList(props) {
   }
 
   // const handleEdit = () => {}
-
+  
   return (
     <>
       <header>
@@ -38,7 +38,7 @@ function ContactsList(props) {
                 </Link>
               </p>
               <p>
-              <button value={contact.id} onClick={(e) => handleDelete(e)}> 🗑️ </button>
+              <button value={contact.id} onClick={(e) => handleDelete(e)}>❌ Delete</button>
               </p>
               {/* <p><a href="/" onClick={handleEdit}>Edit</a></p> */}
             </li>

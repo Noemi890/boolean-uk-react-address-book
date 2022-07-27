@@ -30,7 +30,11 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <p>Address: {contact.street} {contact.city}</p>
+      <p>Email: {contact.email || 'Not Provided'}</p>
+      <p>Twitter: {contact.twitter || 'Not Provided'}</p>
+      <p>Linkedin: {contact.linkedin || 'Not Provided'} </p>
+
     </div>
   )
 }
