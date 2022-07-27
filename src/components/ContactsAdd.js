@@ -24,10 +24,8 @@ function ContactsAdd(props) {
     const personCopy = {...newPerson}
     personCopy[name] = value
     setNewPerson(personCopy)
-    event.preventDefault()
-    console.log('inside conctactsadd', newPerson)
-    
   }
+  // console.log(newPerson)
 
   //TODO: Implement controlled form
   //send POST to json server on form submit
