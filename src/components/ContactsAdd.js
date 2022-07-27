@@ -45,6 +45,7 @@ function ContactsAdd(props) {
     postingData()
     .then((data) => {
       setContacts([...contacts], data)
+      setNewPerson(initialValues)
       navigate('/')
     })
     
@@ -54,7 +55,7 @@ function ContactsAdd(props) {
   //send POST to json server on form submit
 
   return (
-    <form className="form-stack contact-form">
+    <form className="form-stack contact-form" onSubmit={(e) => handleSubmit(e)}>
       <h2>Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
@@ -70,7 +71,7 @@ function ContactsAdd(props) {
       <input id="city" name="city" type="text" value={newPerson.city} onChange={(event) => handleOnChange(event)} required/>
 
       <div className="actions-section">
-        <button className="button blue" type="submit" onClick={(e) => handleSubmit(e)}>
+        <button className="button blue" type="submit">
           Create
         </button>
       </div>

@@ -86,7 +86,7 @@ h2 {
   padding: 0.5rem 0;
 
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr repeat(3, auto);
   align-items: center;
 
   border-bottom: 1px solid #1b1b1b;

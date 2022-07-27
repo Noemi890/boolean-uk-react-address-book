@@ -17,6 +17,8 @@ function ContactsList(props) {
     })
   }
 
+  // const handleEdit = () => {}
+
   return (
     <>
       <header>
@@ -35,7 +37,10 @@ function ContactsList(props) {
                   View
                 </Link>
               </p>
-              <button value={contact.id} onClick={(e) => handleDelete(e)}> Delete </button>
+              <p>
+              <button value={contact.id} onClick={(e) => handleDelete(e)}> 🗑️ </button>
+              </p>
+              {/* <p><a href="/" onClick={handleEdit}>Edit</a></p> */}
             </li>
           )
         })}
