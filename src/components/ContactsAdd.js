@@ -37,7 +37,7 @@ function ContactsAdd(props) {
     e.preventDefault()
     postingData()
     .then((data) => {
-      setContacts([...contacts], data)
+      setContacts([...contacts, data])
       setNewPerson(initialValues)
       navigate('/')
     })

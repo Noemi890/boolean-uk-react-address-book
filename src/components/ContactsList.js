@@ -5,7 +5,7 @@ import { APIurl } from "../utils/vars"
 function ContactsList(props) {
   
   //"contacts" must be passed as prop to this component
-  const { contacts } = props
+  const { contacts, setContacts } = props
 
   const handleDelete = e => {
     fetch(`${APIurl}/${e.target.value}`, {
@@ -13,6 +13,13 @@ function ContactsList(props) {
       headers: {
           'Content-type': 'application/json'
       }
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      const index = contacts.findIndex(person => person.id === data.id)
+      const copy = [...contacts]
+      copy.splice(index, 1)
+      setContacts(copy)
     })
   }
 

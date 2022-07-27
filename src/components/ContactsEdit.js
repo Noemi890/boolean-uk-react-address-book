@@ -40,7 +40,10 @@ export const ContactsEdit = (props) => {
     e.preventDefault()
     modifyData()
     .then((data) => {
-      setContacts([...contacts], data)
+      const index = contacts.findIndex(person => person.id === data.id)
+      const copy = [...contacts]
+      copy[index] = data
+      setContacts(copy)
       setEditedPerson(initialValues)
       navigate('/')
     })
