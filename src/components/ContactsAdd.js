@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+const APIurl = 'http://localhost:4000/contacts'
+
 const initialValues = {
   firstName: '',
   lastName: '',
@@ -25,7 +27,28 @@ function ContactsAdd(props) {
     personCopy[name] = value
     setNewPerson(personCopy)
   }
-  // console.log(newPerson)
+
+  const postingData = async () => {
+    const resp = await fetch(APIurl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newPerson)
+    })
+    return resp.json()
+  }
+
+  const handleSubmit = async e => {
+    console.log('in the handle')
+    e.preventDefault()
+    postingData()
+    .then((data) => {
+      setContacts([...contacts], data)
+      navigate('/')
+    })
+    
+  }
 
   //TODO: Implement controlled form
   //send POST to json server on form submit
@@ -47,7 +70,7 @@ function ContactsAdd(props) {
       <input id="city" name="city" type="text" value={newPerson.city} onChange={(event) => handleOnChange(event)} required/>
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button className="button blue" type="submit" onClick={(e) => handleSubmit(e)}>
           Create
         </button>
       </div>

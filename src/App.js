@@ -17,7 +17,7 @@ export default function App() {
     .then(resp => {
       // console.log(resp)
       setContacts(resp)})
-  },[])
+  },[contacts])
 
   // console.log('contacts in app.js',contacts)
 
