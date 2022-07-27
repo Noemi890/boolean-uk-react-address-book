@@ -1,17 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-
-const APIurl = 'http://localhost:4000/contacts'
-
-const initialValues = {
-  firstName: '',
-  lastName: '',
-  street: '',
-  city:'',
-  email: '',
-  linkedin: '',
-  twitter: ''
-}
+import { APIurl, initialValues } from "../utils/vars";
 
 function ContactsAdd(props) {
   const [newPerson, setNewPerson] = useState(initialValues)
@@ -20,7 +9,7 @@ function ContactsAdd(props) {
   // to this component so new contacts can be added to the
   // state
   
-  const { setContacts, contacts } = props
+  const { setContacts, contacts, person } = props
   
   const navigate = useNavigate()
   
@@ -32,14 +21,15 @@ function ContactsAdd(props) {
   }
 
   const postingData = async () => {
-    const resp = await fetch(APIurl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newPerson)
-    })
-    return resp.json()
+    console.log('blah')
+      const resp = await fetch(APIurl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPerson)
+      })
+      return resp.json()
   }
 
   const handleSubmit = async e => {

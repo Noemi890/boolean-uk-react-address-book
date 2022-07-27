@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-
-const APIurl = 'http://localhost:4000/contacts'
+import { APIurl } from "../utils/vars"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)

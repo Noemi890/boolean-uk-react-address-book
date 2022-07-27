@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
-
-const APIurl = 'http://localhost:4000/contacts'
+import { APIurl } from "../utils/vars"
 
 function ContactsList(props) {
   
@@ -40,7 +39,9 @@ function ContactsList(props) {
               <p>
               <button value={contact.id} onClick={(e) => handleDelete(e)}>❌ Delete</button>
               </p>
-              {/* <p><a href="/" onClick={handleEdit}>Edit</a></p> */}
+              <p>
+                <Link to={`/contacts/${contact.id}/edit`}> Edit </Link>
+              </p>
             </li>
           )
         })}
