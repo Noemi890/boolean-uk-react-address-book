@@ -12,11 +12,11 @@ export const Meetings = () => {
 
   useEffect(() => {
     fetch(`${APImeetings}/?userId=${id}`)
-    .then(resp => resp.json())
-    .then(resp => {
-      setMeetings(resp)
-    })
-  },[id])
+      .then(resp => resp.json())
+      .then(resp => {
+        setMeetings(resp)
+      })
+  },[])
 
   const handleOnChange = e => {
     const {name, value} = e.target
@@ -42,23 +42,24 @@ export const Meetings = () => {
     postNewMeeting()
     .then(resp => resp.json())
     .then( data => {
-      console.log('data', data)
       setMeetings([...meetings, data])
       setNewMeeting(initialMeetings)
     }
     )
   }
 
-  const handleClick = async (e) => {
-    let id = e.target.value
-    await fetch(`${APImeetings}/${id}`, {
+  const handleClick = (id) => {
+    fetch(`${APImeetings}/${id}`, {
       method: 'DELETE'
     })
     .then(resp => resp.json())
     .then(data => {
-      const index = meetings.findIndex(meet => meet.id === id)
+      console.log(meetings)
+      const index = meetings.findIndex(item => item.id === id)
+      console.log(index)
       const copy = [...meetings]
       copy.splice(index, 1)
+      console.log('copy without deleted element', copy)
       setMeetings(copy)
     })
   }
@@ -94,13 +95,14 @@ export const Meetings = () => {
       <ul>
         { (meetings) && (
           meetings.map((meet, i) => {
+            console.log('my meeting',meet)
             return (
               <li key={i}>
                 <p><strong>{meet.content}</strong></p>
                 <p>Date: {meet.date}</p>
                 <p>Time: {meet.time}</p>
                 <p>Location: {meet.location}</p>
-                <button value={meet.id} onClick={e => handleClick(e)}>❌ Delete</button>
+                <button onClick={() => handleClick(meet.id)}>❌ Delete</button>
               </li>
             )
           }))

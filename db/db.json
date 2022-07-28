@@ -33,14 +33,6 @@
   ],
   "meetings": [
     {
-      "id": 1,
-      "date": "20/12/2022",
-      "time": "15:45",
-      "location": "office",
-      "content": "Meeting for Secret Santa",
-      "userId": 1
-    },
-    {
       "id": 3,
       "date": "12/08/2022",
       "time": "15:45",
@@ -55,6 +47,14 @@
       "location": "Boolean",
       "userId": "2",
       "id": 4
+    },
+    {
+      "date": "2022-07-21",
+      "content": "How to do simple CSS even when you don't remeber anything",
+      "time": "18:49",
+      "location": "office",
+      "userId": "1",
+      "id": 8
     }
   ]
 }

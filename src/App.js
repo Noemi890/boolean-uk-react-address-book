@@ -5,7 +5,7 @@ import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import { ContactsEdit } from "./components/ContactsEdit"
 import { Meetings } from "./components/Meetings"
-import { InfinitySpin } from "react-loader-spinner"
+import { Puff } from "react-loader-spinner"
 import "./styles/styles.css"
 import "./styles/loading.css"
 import { APIurl } from "./utils/vars"
@@ -35,8 +35,8 @@ export default function App() {
     <>
       {(isLoading) ? (
       <div className="container">
-        <InfinitySpin 
-          color="#088F8F" height={300} width={300}
+        <Puff 
+          color="#CCCCFF" height={300} width={300}
         />
       </div>
        ) : ( 
