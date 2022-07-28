@@ -1,4 +1,5 @@
 const APIurl = 'http://localhost:4000/contacts'
+const APImeetings = 'http://localhost:4000/meetings'
 
 const initialValues = {
   firstName: '',
@@ -10,4 +11,9 @@ const initialValues = {
   twitter: ''
 }
 
-export {APIurl, initialValues}
+const initialMeetings = {
+  "date": "",
+  "content": ""
+}
+
+export {APIurl, APImeetings, initialValues, initialMeetings}

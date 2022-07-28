@@ -33,7 +33,7 @@ function ContactsView() {
       <p>Email: {contact.email || 'Not Provided'}</p>
       <p>Twitter: {contact.twitter || 'Not Provided'}</p>
       <p>Linkedin: {contact.linkedin || 'Not Provided'} </p>
-      <p><Link to="/contacts/:id/meetings">View Meetings</Link></p>
+      <p><Link to={`/contacts/${contact.id}/meetings`}>View Meetings</Link></p>
     </div>
   )
 }
