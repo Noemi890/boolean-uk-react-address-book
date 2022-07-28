@@ -19,9 +19,10 @@ export default function App() {
     fetch(APIurl)
     .then(resp => resp.json())
     .then(resp => {
-      // console.log(resp)
-      setContacts(resp)
-      setIsLoading(false)
+      setTimeout(() => {
+        setContacts(resp)
+        setIsLoading(false);
+      }, 3000)
     })
   },[])
 
