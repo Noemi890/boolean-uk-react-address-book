@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { APIurl } from "../utils/vars"
 
 function ContactsView() {
@@ -33,7 +33,7 @@ function ContactsView() {
       <p>Email: {contact.email || 'Not Provided'}</p>
       <p>Twitter: {contact.twitter || 'Not Provided'}</p>
       <p>Linkedin: {contact.linkedin || 'Not Provided'} </p>
-
+      <p><Link to="/contacts/:id/meetings">View Meetings</Link></p>
     </div>
   )
 }

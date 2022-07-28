@@ -1,3 +1,64 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "firstName": "John",
+      "lastName": "Carmak",
+      "street": "10 Keen Street",
+      "city": "London",
+      "email": "john@blah.com",
+      "linkedin": "john",
+      "twitter": "john",
+      "id": 1
+    },
+    {
+      "firstName": "Mike",
+      "lastName": "H",
+      "street": "4 react Road",
+      "city": "Codesville",
+      "email": "Mike@code.com",
+      "linkedin": "mikecode",
+      "twitter": "mikecode",
+      "id": 2
+    },
+    {
+      "firstName": "Grace",
+      "lastName": "Hopper",
+      "street": "32 Deebug Road",
+      "city": "London",
+      "email": "debGrace@code.com",
+      "linkedin": "debGrace",
+      "twitter": "debGrace",
+      "id": 3
+    }
+  ],
+
+  "meetings": [
+    {
+     "id": 1,
+     "meetings": [
+      {
+        "date": "20/12/2022",
+        "content": "Meeting for Secret Santa"
+      }
+     ] 
+    },
+    {
+      "id": 2,
+      "meetings": [
+        {
+          "date": "15/08/2022",
+          "content": "Work Meeting"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "meetings": [
+        {
+          "date": "12/08/2022",
+          "content": "How to update a component without breaking anything"
+        }
+      ]
+    }
+  ]
 }

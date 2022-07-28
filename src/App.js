@@ -4,8 +4,10 @@ import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import { ContactsEdit } from "./components/ContactsEdit"
-import { Loading } from "./components/Loading"
+import { Meetings } from "./components/Meetings"
+import { InfinitySpin } from "react-loader-spinner"
 import "./styles/styles.css"
+import "./styles/loading.css"
 import { APIurl } from "./utils/vars"
 
 export default function App() {
@@ -32,7 +34,11 @@ export default function App() {
   return (
     <>
       {(isLoading) ? (
-        <Loading />
+      <div className="container">
+        <InfinitySpin 
+          color="blue" height={300} width={300}
+        />
+      </div>
        ) : ( 
       <>
         <nav>
@@ -48,6 +54,7 @@ export default function App() {
             <Route path="/contacts/add" element={ <ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
             <Route path='/contacts/:id' element={ <ContactsView />} />
             <Route path="/contacts/:id/edit" element={<ContactsEdit contacts={contacts} setContacts={setContacts}/>} />
+            <Route path="/contacts/:id/meetings" element={<Meetings />} />
           </Routes>
         </main>
       </>
