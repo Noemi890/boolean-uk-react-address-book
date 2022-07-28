@@ -14,9 +14,10 @@
   display: flex;
   justify-content: center;
 }
+
 .loading-spinner {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border: 10px solid #f3f3f3; /* Light grey */
   border-top: 10px solid #383636; /* Black */
   border-radius: 50%;
