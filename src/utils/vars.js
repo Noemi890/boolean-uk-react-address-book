@@ -13,7 +13,10 @@ const initialValues = {
 
 const initialMeetings = {
   "date": "",
-  "content": ""
+  "content": "",
+  "time": "",
+  "location": "",
+  "userId": ""
 }
 
 export {APIurl, APImeetings, initialValues, initialMeetings}

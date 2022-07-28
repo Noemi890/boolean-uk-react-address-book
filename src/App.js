@@ -36,7 +36,7 @@ export default function App() {
       {(isLoading) ? (
       <div className="container">
         <InfinitySpin 
-          color="blue" height={300} width={300}
+          color="#088F8F" height={300} width={300}
         />
       </div>
        ) : ( 

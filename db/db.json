@@ -31,34 +31,30 @@
       "id": 3
     }
   ],
-
   "meetings": [
     {
-     "id": 1,
-     "meetings": [
-      {
-        "date": "20/12/2022",
-        "content": "Meeting for Secret Santa"
-      }
-     ] 
-    },
-    {
-      "id": 2,
-      "meetings": [
-        {
-          "date": "15/08/2022",
-          "content": "Work Meeting"
-        }
-      ]
+      "id": 1,
+      "date": "20/12/2022",
+      "time": "15:45",
+      "location": "office",
+      "content": "Meeting for Secret Santa",
+      "userId": 1
     },
     {
       "id": 3,
-      "meetings": [
-        {
-          "date": "12/08/2022",
-          "content": "How to update a component without breaking anything"
-        }
-      ]
+      "date": "12/08/2022",
+      "time": "15:45",
+      "location": "office",
+      "content": "How to update a component without breaking anything",
+      "userId": 3
+    },
+    {
+      "date": "2022-07-28",
+      "content": "How to use 'DELETE' without breaking your code",
+      "time": "15:25",
+      "location": "Boolean",
+      "userId": "2",
+      "id": 4
     }
   ]
 }

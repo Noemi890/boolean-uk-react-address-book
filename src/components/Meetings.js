@@ -1,37 +1,111 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { initialMeetings, APImeetings } from "../utils/vars"
+import { initialMeetings, APImeetings} from "../utils/vars"
 
 export const Meetings = () => {
+  const [newMeeting, setNewMeeting] = useState(initialMeetings)
   const [meetings, setMeetings] = useState([initialMeetings])
 
   if(!meetings) return <>Loading..</>
 
-  const id = useParams()
+  const {id} = useParams()
 
   useEffect(() => {
-    fetch(`${APImeetings}/${id.id}`)
+    fetch(`${APImeetings}/?userId=${id}`)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp)
-      setMeetings(resp.meetings)
+      setMeetings(resp)
     })
   },[id])
+
+  const handleOnChange = e => {
+    const {name, value} = e.target
+    const copy = {...newMeeting}
+    copy[name] = value
+    copy.userId = id
+    setNewMeeting(copy)
+  }
+
+  const postNewMeeting = () => {
+    console.log('inside post')
+    return fetch(`${APImeetings}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newMeeting)
+    })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    postNewMeeting()
+    .then(resp => resp.json())
+    .then( data => {
+      console.log('data', data)
+      setMeetings([...meetings, data])
+      setNewMeeting(initialMeetings)
+    }
+    )
+  }
+
+  const handleClick = async (e) => {
+    let id = e.target.value
+    await fetch(`${APImeetings}/${id}`, {
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      const index = meetings.findIndex(meet => meet.id === id)
+      const copy = [...meetings]
+      copy.splice(index, 1)
+      setMeetings(copy)
+    })
+  }
 
 
   return (
     <>
-    <ul>
-      { (meetings) && (
-        meetings.map((meet, i) => {
-          return (
-            <li key={i}>Date: {meet.date}
-              <p>Content: {meet.content}</p>
-            </li>
-          )
-        }))
-      }
-    </ul>
+      <h2>Add a new Meeting</h2>
+      <form className="form-stack contact-form" onSubmit={(e) => handleSubmit(e)}>
+
+        <label htmlFor="content">Title</label>
+        <input id="content" name="content" type="text" value={newMeeting.content} onChange={(e) => handleOnChange(e)} required/>
+
+        <label htmlFor="date">Date</label>
+        <input id="date" name="date" type="date" value={newMeeting.date} onChange={(e) => handleOnChange(e)} required/>
+
+        <label htmlFor="time">Time</label>
+        <input id="time" name="time" type="time" value={newMeeting.time} onChange={(e) => handleOnChange(e)} required/>
+
+        <label htmlFor="location">Location</label>
+        <input id="location" name="location" type="text" value={newMeeting.location} onChange={(e) => handleOnChange(e)} required/>
+
+      <div className="actions-section">
+
+        <button className="button blue" type="submit">
+          Add new Meeting
+        </button>
+
+      </div>
+    </form>
+
+    <h2>Your meetings</h2> 
+      <ul>
+        { (meetings) && (
+          meetings.map((meet, i) => {
+            return (
+              <li key={i}>
+                <p><strong>{meet.content}</strong></p>
+                <p>Date: {meet.date}</p>
+                <p>Time: {meet.time}</p>
+                <p>Location: {meet.location}</p>
+                <button value={meet.id} onClick={e => handleClick(e)}>❌ Delete</button>
+              </li>
+            )
+          }))
+        }
+      </ul>
     </>
   )
 }
